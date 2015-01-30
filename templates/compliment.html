@@ -4,7 +4,10 @@
   <title>A Compliment</title>
 </head>
 <body>
-    Hi {{ person }}! I think you're {{ compliment }}!
+    Hi {{ person }}! I think you're 
+    {% for i in compliment%}
+    {{i}}
+    {% endfor %}
     <p> Would you like to play a game? </p>
     <form action= '/game'>
         <label> Yes <input type="radio" name="response" value ="yes"> </label>
