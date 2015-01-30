@@ -6,13 +6,13 @@ from flask import Flask, render_template, request
 # to know this to know what any imported things are relative to.
 app = Flask(__name__)
 
-# route to handle the landing page of a website.
-@app.route('/')
-def start_here():
-    return "Hi! This is the home page."
+# # route to handle the landing page of a website.
+# @app.route('/')
+# def start_here():
+#     return "Hi! This is the home page."
 
-# route to display a simple web page
-@app.route('/hello')
+# # route to display a simple web page
+@app.route('/')
 def say_hello():
     return render_template("hello.html")
 
@@ -28,6 +28,31 @@ def greet_person():
 
     return render_template("compliment.html", person=player, compliment=compliment)
 
+
+@app.route('/game')
+def show_game_form():
+    response = request.args.get("response")
+
+    print response
+    if response == "yes":
+        return render_template("game.html")
+    else:
+
+        return render_template("goodbye.html")
+
+@app.route('/madlib')
+def show_madlib():
+
+    person = request.args.get("person")
+    noun= request.args.get("noun")
+    adjective= request.args.get("adjective")
+    color = request.args.get("color")
+    animals = request.args.getlist("animals")
+
+
+    return render_template("madlib.html", person=person, noun=noun, adjective=adjective, 
+        color=color, animals=animals)
+    
 
 if __name__ == '__main__':
     # debug=True gives us error messages in the browser and also "reloads" our web app
