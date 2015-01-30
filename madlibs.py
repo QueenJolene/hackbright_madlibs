@@ -49,8 +49,11 @@ def show_madlib():
     color = request.args.get("color")
     animals = request.args.getlist("animals")
 
+    random_template= choice(["madlib.html","madlib2.html","madlib3.html", "madlib4.html"])
+    print random_template
 
-    return render_template("madlib.html", person=person, noun=noun, adjective=adjective, 
+
+    return render_template(random_template, person=person, noun=noun, adjective=adjective, 
         color=color, animals=animals)
     
 
