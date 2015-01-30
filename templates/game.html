@@ -15,7 +15,7 @@
             <label><option value="orange">Orange</option></label>
         </select>
         <br>
-        <label>Enter a noun: <input type="text", name="noun"></label>
+        <label>Enter a noun: <input type="text", name="noun" id="noun"></label>
         <br>
         <label>Enter an adjective:<input type="text", name="adjective" id="adjective"></label>
         <br>
@@ -52,16 +52,15 @@
 
 
     $('#submit').on("click",function(evt){
-        var color = ($("#color").val());
         var name = ($("#name").val());
         var adj = ($("#adjective").val())
-        if (color === '') {
+        var noun = ($("#noun").val())
+        if (adj === ''|| name ==="" || noun ==="") {
             alert('Input cannot be left blank');
             evt.preventDefault();
-           }
-
         }
-
+        
+        }
     );
 
 
