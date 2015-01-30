@@ -1,4 +1,5 @@
 from random import sample
+from random import choice
 from flask import Flask, render_template, request
 
 
